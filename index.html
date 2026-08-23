@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Vijayasree ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="aurora aurora-one"></div>
+        <div class="aurora aurora-two"></div>
+        <div class="aurora aurora-three"></div>
+
+        <div class="stars"></div>
+        <div class="hearts-layer"></div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-heart">♡</div>
+
+    <!-- MAIN APP -->
+    <main id="app">
+
+        <!-- ================= START SCREEN ================= -->
+
+        <section class="screen active" id="startScreen">
+
+            <div class="glass-card welcome-card">
+
+                <div class="mini-heart">♥</div>
+
+                <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+                <h1>
+                    Hey,<br>
+                    <span>Vijayasree</span> ❤️
+                </h1>
+
+                <p class="intro-text">
+                    I made something just for you.
+                </p>
+
+                <div class="divider"></div>
+
+                <p class="small-intro">
+                    10 questions.<br>
+                    One little surprise.
+                </p>
+
+                <button class="main-btn" id="startBtn">
+                    START THE JOURNEY
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTRO SCREEN ================= -->
+
+        <section class="screen" id="introScreen">
+
+            <div class="glass-card intro-card">
+
+                <div class="floating-heart">♡</div>
+
+                <p class="eyebrow">BEFORE WE BEGIN</p>
+
+                <h2>
+                    There are
+                    <span>10 questions.</span>
+                </h2>
+
+                <p class="body-text">
+                    Some are funny.<br>
+                    Some are random.<br>
+                    Some might make you smile.
+                </p>
+
+                <p class="highlight-text">
+                    And one...
+                    <br>
+                    might change everything. ❤️
+                </p>
+
+                <button class="main-btn" id="readyBtn">
+                    I'M READY
+                    <span>♥</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUESTION SCREEN ================= -->
+
+        <section class="screen" id="questionScreen">
+
+            <div class="question-wrapper">
+
+                <div class="progress-area">
+
+                    <div class="progress-top">
+                        <span id="questionNumber">01</span>
+                        <span>/ 10</span>
+                    </div>
+
+                    <div class="progress-line">
+                        <div id="progressBar"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="question-card glass-card">
+
+                    <div class="question-icon" id="questionIcon">
+                        ❤️
+                    </div>
+
+                    <p class="question-label" id="questionLabel">
+                        QUESTION 01
+                    </p>
+
+                    <h2 id="questionText">
+                        Do you remember when we first started becoming "us"?
+                    </h2>
+
+                    <div class="options" id="optionsContainer"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= IMAGE QUESTION ================= -->
+
+        <section class="screen" id="imageQuestionScreen">
+
+            <div class="question-wrapper image-question-wrapper">
+
+                <div class="progress-area">
+
+                    <div class="progress-top">
+                        <span>03</span>
+                        <span>/ 10</span>
+                    </div>
+
+                    <div class="progress-line">
+                        <div class="image-progress"></div>
+                    </div>
+
+                </div>
+
+                <div class="image-question-card glass-card">
+
+                    <p class="question-label">
+                        QUESTION 03
+                    </p>
+
+                    <h2>
+                        Which memory would<br>
+                        you choose to keep forever? ❤️
+                    </h2>
+
+                    <div class="photo-grid">
+
+                        <button class="photo-option" data-answer="1">
+                            <img src="images/photo1.jpg" alt="Memory 1">
+                            <span>01</span>
+                        </button>
+
+                        <button class="photo-option" data-answer="2">
+                            <img src="images/photo2.jpg" alt="Memory 2">
+                            <span>02</span>
+                        </button>
+
+                        <button class="photo-option" data-answer="3">
+                            <img src="images/photo3.jpg" alt="Memory 3">
+                            <span>03</span>
+                        </button>
+
+                        <button class="photo-option" data-answer="4">
+                            <img src="images/photo4.jpg" alt="Memory 4">
+                            <span>04</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINAL PROPOSAL ================= -->
+
+        <section class="screen final-screen" id="proposalScreen">
+
+            <div class="proposal-content">
+
+                <p class="final-small" id="finalIntro">
+                    ONE LAST QUESTION...
+                </p>
+
+                <div class="big-heart" id="bigHeart">
+                    ♥
+                </div>
+
+                <div class="love-reveal" id="loveReveal">
+
+                    <div id="loveText"></div>
+
+                </div>
+
+                <div class="proposal-question" id="proposalQuestion">
+
+                    <p>
+                        And now...
+                    </p>
+
+                    <h2>
+                        there's something<br>
+                        I've wanted to ask you.
+                    </h2>
+
+                </div>
+
+                <div class="marriage-box" id="marriageBox">
+
+                    <div class="ring">💍</div>
+
+                    <h1>
+                        WILL YOU<br>
+                        <span>MARRY ME?</span>
+                    </h1>
+
+                    <p>
+                        ❤️ Vijayasree ❤️
+                    </p>
+
+                    <div class="proposal-buttons">
+
+                        <button class="proposal-btn" data-proposal="yes">
+                            YES ❤️
+                        </button>
+
+                        <button class="proposal-btn" data-proposal="kuttima">
+                            YES, MY KUTTIMA 🥹
+                        </button>
+
+                        <button class="proposal-btn" data-proposal="gunduu">
+                            OF COURSE, GUNDUU 💗
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= YES CELEBRATION ================= -->
+
+        <section class="screen celebration-screen" id="celebrationScreen">
+
+            <div class="celebration-content">
+
+                <div class="celebration-heart">
+                    ♥
+                </div>
+
+                <p class="celebration-small">
+                    YOU SAID YES
+                </p>
+
+                <h1>
+                    SHE SAID<br>
+                    <span>YES. ❤️</span>
+                </h1>
+
+                <p class="celebration-name">
+                    Vijayasree
+                </p>
+
+                <div class="celebration-message">
+                    <span>Gunduu</span>
+                    <span>Ammu</span>
+                    <span>Kuttikunjaan</span>
+                    <span>Pattu</span>
+                    <span>Kuttima</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PHOTO MEMORIES ================= -->
+
+        <section class="screen memories-screen" id="memoriesScreen">
+
+            <div class="memories-container">
+
+                <p class="eyebrow">
+                    OUR LITTLE MEMORIES
+                </p>
+
+                <h2>
+                    From moments...
+                    <br>
+                    to <span>memories.</span>
+                </h2>
+
+                <div class="memory-stage">
+
+                    <div class="memory-photo" id="memoryPhoto">
+                        <img src="images/photo1.jpg" alt="Our memory">
+                    </div>
+
+                    <div class="memory-number" id="memoryNumber">
+                        01 / 04
+                    </div>
+
+                </div>
+
+                <p class="memory-caption" id="memoryCaption">
+                    A moment I'll always remember. ❤️
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINAL MESSAGE ================= -->
+
+        <section class="screen final-message-screen" id="finalMessageScreen">
+
+            <div class="final-message-card">
+
+                <div class="final-glow-heart">
+                    ♥
+                </div>
+
+                <p class="eyebrow">
+                    FOR YOU, VIJAYASREE
+                </p>
+
+                <h1>
+                    My <span>Gunduu.</span>
+                </h1>
+
+                <div class="names">
+
+                    <span>My Ammu.</span>
+                    <span>My Kuttikunjaan.</span>
+                    <span>My Pattu.</span>
+                    <span>My Kuttima.</span>
+
+                </div>
+
+                <div class="message-line"></div>
+
+                <p class="final-love">
+                    I LOVE YOU. ❤️
+                </p>
+
+                <p class="forever">
+                    Forever starts with us.
+                </p>
+
+                <div class="infinity">
+                    ∞
+                </div>
+
+                <button class="replay-btn" id="replayBtn">
+                    PLAY AGAIN
+                    <span>↻</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- CELEBRATION PARTICLES -->
+    <div id="celebrationParticles"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
