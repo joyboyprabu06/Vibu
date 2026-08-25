@@ -1,37 +1,59 @@
 /* =========================================================
-   VIJAYASREE PROPOSAL WEBSITE
+   VIJAYASREE — INTERACTIVE LOVE JOURNEY
 ========================================================= */
 
 
 /* =========================================================
-   ELEMENTS
+   SCREEN ELEMENTS
 ========================================================= */
 
 const screens = {
-    start: document.getElementById("startScreen"),
-    intro: document.getElementById("introScreen"),
-    question: document.getElementById("questionScreen"),
-    imageQuestion: document.getElementById("imageQuestionScreen"),
-    proposal: document.getElementById("proposalScreen"),
-    celebration: document.getElementById("celebrationScreen"),
-    memories: document.getElementById("memoriesScreen"),
-    finalMessage: document.getElementById("finalMessageScreen")
+
+    welcome:
+        document.getElementById("welcomeScreen"),
+
+    intro:
+        document.getElementById("introScreen"),
+
+    questions:
+        document.getElementById("questionScreen"),
+
+    photos:
+        document.getElementById("photoQuestionScreen"),
+
+    love:
+        document.getElementById("loveScreen"),
+
+    proposal:
+        document.getElementById("proposalScreen"),
+
+    result:
+        document.getElementById("resultScreen"),
+
+    answerSheet:
+        document.getElementById("answerSheetScreen")
+
 };
 
-const startBtn = document.getElementById("startBtn");
-const readyBtn = document.getElementById("readyBtn");
 
-const questionNumber = document.getElementById("questionNumber");
-const questionText = document.getElementById("questionText");
-const questionLabel = document.getElementById("questionLabel");
-const optionsContainer = document.getElementById("optionsContainer");
-const progressBar = document.getElementById("progressBar");
+/* =========================================================
+   BUTTONS
+========================================================= */
 
-const loveText = document.getElementById("loveText");
-const proposalQuestion = document.getElementById("proposalQuestion");
-const marriageBox = document.getElementById("marriageBox");
+const beginButton =
+    document.getElementById("beginButton");
 
-const replayBtn = document.getElementById("replayBtn");
+const readyButton =
+    document.getElementById("readyButton");
+
+const textContinueButton =
+    document.getElementById("textContinueButton");
+
+const answerSheetButton =
+    document.getElementById("answerSheetButton");
+
+const replayButton =
+    document.getElementById("replayButton");
 
 
 /* =========================================================
@@ -41,126 +63,188 @@ const replayBtn = document.getElementById("replayBtn");
 const questions = [
 
     {
-        number: "01",
+        number: 1,
+
         icon: "❤️",
-        text: 'Do you remember when we first started becoming "us"?',
+
+        text:
+            "Do you remember when we first met, and do you remember when we became “us” — when we became lovers?",
+
+        type: "options",
+
         options: [
-            "I remember ❤️",
-            "Maybe... 👀",
-            "Of course I do 🥹",
-            "You tell me 😌"
-        ]
+            "Yes",
+            "No",
+            "Absolutely, I remember",
+            "Never"
+        ],
+
+        hasDate: true
+
     },
 
     {
-        number: "02",
-        icon: "🌷",
-        text: "Which one describes us the best?",
-        options: [
-            "💗 Best Friends",
-            "😂 Two Crazy People",
-            "🌈 Partners in Crime",
-            "❤️ Something More"
-        ]
-    },
+        number: 2,
 
-    {
-        number: "04",
-        icon: "🌈",
-        text: "If we could disappear somewhere together... where would you choose?",
-        options: [
-            "🌊 Beach",
-            "🌃 A city at night",
-            "🏔️ Somewhere peaceful",
-            "🌌 Anywhere, as long as we're together"
-        ]
-    },
-
-    {
-        number: "05",
-        icon: "🥹",
-        text: "What's one thing about me that secretly makes you smile?",
-        options: [
-            "😂 My comedy",
-            "😌 My way of talking",
-            "🥹 The way I care",
-            "❤️ Everything"
-        ]
-    },
-
-    {
-        number: "06",
         icon: "💗",
-        text: "If you had to describe whatever this is between us with ONE word... what would it be?",
+
+        text:
+            "Do you still love me, or have those feelings for me faded away?",
+
+        type: "options",
+
         options: [
-            "FRIENDSHIP",
-            "CONNECTION",
-            "LOVE",
-            "OUR LITTLE STORY ❤️"
+            "Yes",
+            "Never",
+            "They’re still there, but…",
+            "They’ll come back"
         ]
+
     },
 
     {
-        number: "07",
+        number: 3,
+
         icon: "🫶",
-        text: "If you could go back to the very beginning... would you choose me again?",
+
+        text:
+            "What kind of relationship do we have?",
+
+        type: "options",
+
         options: [
-            "YES ❤️",
-            "WITHOUT A DOUBT 🫶",
-            "EVERY SINGLE TIME 🌈"
+            "Friendship",
+            "Lovers",
+            "Classmates",
+            "Soulmates"
         ]
+
     },
 
     {
-        number: "08",
-        icon: "👀",
-        text: "Okay... we're getting closer. Are you ready for the last two questions?",
+        number: 4,
+
+        icon: "🌊",
+
+        text:
+            "If I suddenly stopped talking to you from tomorrow, would you forget me and move on? Or would you stay silent, continue with your work, and let me go?",
+
+        type: "options",
+
         options: [
-            "YES 😳",
-            "I'M READY ❤️",
-            "LET'S GO 💗"
+            "No matter what happens, I’ll stay",
+            "I’ll move on",
+            "I’ll come back and talk to you from time to time",
+            "I don’t know"
         ]
+
     },
 
     {
-        number: "09",
-        icon: "🥹",
-        text: "If someone wanted to stay beside you through the good days, bad days, random fights, stupid jokes, and everything between... would you let him?",
+        number: 5,
+
+        icon: "🥺",
+
+        text:
+            "Have you ever thought that you don’t want me in your life forever — that you don’t want this person in your life?",
+
+        type: "options",
+
         options: [
-            "YES 🥹",
-            "ALWAYS ❤️",
-            "I'M NOT GOING ANYWHERE 💗"
+            "Yes",
+            "No",
+            "Sometimes"
         ]
+
+    },
+
+    {
+        number: 6,
+
+        icon: "💔",
+
+        text:
+            "If I were gone one day, would you move on to another relationship, or if a new boyfriend came into your life, would you talk to him and forget about me?",
+
+        type: "options",
+
+        options: [
+            "Yes",
+            "No",
+            "I don’t know"
+        ]
+
+    },
+
+    {
+        number: 7,
+
+        icon: "💍",
+
+        text:
+            "If your family found a suitable match for you through an arranged marriage, would you say yes and move on?",
+
+        type: "options",
+
+        options: [
+            "Yes",
+            "No"
+        ]
+
+    },
+
+    {
+        number: 8,
+
+        icon: "🌙",
+
+        text:
+            "If you found out tomorrow that I was no longer in this world, what would you do?",
+
+        type: "text"
+
+    },
+
+    {
+        number: 9,
+
+        icon: "❤️",
+
+        text:
+            "When we’re together, do you truly feel that we belong together?",
+
+        type: "options",
+
+        options: [
+            "Yes",
+            "No",
+            "Sometimes"
+        ]
+
+    },
+
+    {
+        number: 10,
+
+        icon: "💗",
+
+        text:
+            "Please answer honestly, from your heart. Do you want me in your life or not?",
+
+        type: "text"
+
     }
 
 ];
 
 
 /* =========================================================
-   STATE
+   ANSWERS
 ========================================================= */
 
-let currentQuestionIndex = 0;
-let memoryIndex = 0;
+let answers = [];
 
-const memories = [
-    {
-        image: "images/photo1.jpg",
-        caption: "A moment I'll always remember. ❤️"
-    },
-    {
-        image: "images/photo2.jpg",
-        caption: "One more beautiful memory with you. 🌸"
-    },
-    {
-        image: "images/photo3.jpg",
-        caption: "A moment that became a memory. 🌅"
-    },
-    {
-        image: "images/photo4.jpg",
-        caption: "And a memory I'll keep forever. ❤️"
-    }
-];
+let currentQuestion = 0;
 
 
 /* =========================================================
@@ -170,28 +254,34 @@ const memories = [
 function showScreen(screen) {
 
     Object.values(screens).forEach(item => {
+
         item.classList.remove("active");
+
     });
 
     setTimeout(() => {
+
         screen.classList.add("active");
+
     }, 80);
+
 }
 
 
 /* =========================================================
-   START
+   BEGIN
 ========================================================= */
 
-startBtn.addEventListener("click", () => {
+beginButton.addEventListener("click", () => {
 
-    createHeartBurst(
+    createHeartExplosion(
         window.innerWidth / 2,
         window.innerHeight / 2,
-        15
+        18
     );
 
     showScreen(screens.intro);
+
 });
 
 
@@ -199,15 +289,16 @@ startBtn.addEventListener("click", () => {
    READY
 ========================================================= */
 
-readyBtn.addEventListener("click", () => {
+readyButton.addEventListener("click", () => {
 
-    currentQuestionIndex = 0;
+    answers = [];
 
-    showScreen(screens.question);
+    currentQuestion = 0;
 
-    setTimeout(() => {
-        renderQuestion();
-    }, 350);
+    renderQuestion();
+
+    showScreen(screens.questions);
+
 });
 
 
@@ -217,107 +308,443 @@ readyBtn.addEventListener("click", () => {
 
 function renderQuestion() {
 
-    const question = questions[currentQuestionIndex];
+    const question =
+        questions[currentQuestion];
 
-    questionNumber.textContent = question.number;
+    const counter =
+        document.getElementById(
+            "questionCounter"
+        );
 
-    questionLabel.textContent =
-        `QUESTION ${question.number}`;
+    const percent =
+        document.getElementById(
+            "questionPercent"
+        );
 
-    questionText.textContent = question.text;
+    const progress =
+        document.getElementById(
+            "progressFill"
+        );
 
-    progressBar.style.width =
-        `${(parseInt(question.number) / 10) * 100}%`;
+    const icon =
+        document.getElementById(
+            "questionIcon"
+        );
 
-    optionsContainer.innerHTML = "";
+    const label =
+        document.getElementById(
+            "questionLabel"
+        );
 
-    question.options.forEach((option, index) => {
+    const text =
+        document.getElementById(
+            "questionText"
+        );
 
-        const button = document.createElement("button");
+    const options =
+        document.getElementById(
+            "answerOptions"
+        );
 
-        button.className = "option-btn";
+    const dateArea =
+        document.getElementById(
+            "dateArea"
+        );
 
-        button.innerHTML = `
-            <span>${String.fromCharCode(65 + index)}</span>
-            &nbsp;&nbsp;
-            ${option}
-        `;
+    const textArea =
+        document.getElementById(
+            "textAnswerArea"
+        );
 
-        button.addEventListener("click", () => {
 
-            button.classList.add("selected");
+    /* Counter */
 
-            createHeartBurst(
-                window.innerWidth / 2,
-                window.innerHeight / 2,
-                8
-            );
+    counter.textContent =
+        `QUESTION ${String(question.number).padStart(2, "0")}`;
 
-            setTimeout(() => {
 
-                if (question.number === "02") {
+    const percentage =
+        Math.round(
+            (question.number / 11) * 100
+        );
 
-                    showImageQuestion();
 
-                } else if (currentQuestionIndex < questions.length - 1) {
+    percent.textContent =
+        `${percentage}%`;
 
-                    currentQuestionIndex++;
+    progress.style.width =
+        `${percentage}%`;
 
-                    renderQuestion();
 
-                } else {
+    /* Content */
 
-                    startProposal();
+    icon.textContent =
+        question.icon;
+
+    label.textContent =
+        `QUESTION ${String(question.number).padStart(2, "0")}`;
+
+    text.textContent =
+        question.text;
+
+
+    /* Reset */
+
+    options.innerHTML = "";
+
+    dateArea.classList.add("hidden");
+
+    textArea.classList.add("hidden");
+
+
+    /* Date */
+
+    if (question.hasDate) {
+
+        dateArea.classList.remove("hidden");
+
+    }
+
+
+    /* Text */
+
+    if (question.type === "text") {
+
+        textArea.classList.remove("hidden");
+
+        document.getElementById(
+            "writtenAnswer"
+        ).value = "";
+
+        return;
+
+    }
+
+
+    /* Options */
+
+    question.options.forEach(
+        (option, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "answer-option";
+
+            button.innerHTML =
+                `<strong>${String.fromCharCode(65 + index)}</strong>
+                 &nbsp;&nbsp; ${option}`;
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectOption(
+                        button,
+                        option
+                    );
 
                 }
+            );
 
-            }, 650);
+            options.appendChild(button);
 
-        });
+        }
+    );
 
-        optionsContainer.appendChild(button);
-
-    });
 }
 
 
 /* =========================================================
-   IMAGE QUESTION
+   SELECT OPTION
 ========================================================= */
 
-function showImageQuestion() {
+function selectOption(button, option) {
 
-    showScreen(screens.imageQuestion);
+    document
+        .querySelectorAll(".answer-option")
+        .forEach(item => {
 
-    document.querySelectorAll(".photo-option").forEach(photo => {
+            item.classList.remove("selected");
 
-        photo.classList.remove("selected");
+        });
 
-        photo.onclick = () => {
 
-            photo.classList.add("selected");
+    button.classList.add("selected");
 
-            createHeartBurst(
-                window.innerWidth / 2,
-                window.innerHeight / 2,
-                10
+
+    createHeartExplosion(
+        window.innerWidth / 2,
+        window.innerHeight / 2,
+        8
+    );
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    let answer =
+        option;
+
+
+    /* Question 1 date */
+
+    if (question.number === 1) {
+
+        const date =
+            document.getElementById(
+                "memoryDate"
+            ).value;
+
+        if (date) {
+
+            answer =
+                `${option} — Date: ${formatDate(date)}`;
+
+        }
+
+    }
+
+
+    answers.push({
+
+        question:
+            `Question ${question.number}`,
+
+        answer:
+            answer
+
+    });
+
+
+    setTimeout(() => {
+
+        nextQuestion();
+
+    }, 650);
+
+}
+
+
+/* =========================================================
+   TEXT ANSWERS
+========================================================= */
+
+textContinueButton.addEventListener(
+    "click",
+    () => {
+
+        const input =
+            document.getElementById(
+                "writtenAnswer"
             );
+
+        const value =
+            input.value.trim();
+
+
+        if (!value) {
+
+            input.focus();
+
+            input.style.borderColor =
+                "#ff5575";
 
             setTimeout(() => {
 
-                currentQuestionIndex = 2;
+                input.style.borderColor =
+                    "";
 
-                showScreen(screens.question);
+            }, 700);
+
+            return;
+
+        }
+
+
+        answers.push({
+
+            question:
+                `Question ${questions[currentQuestion].number}`,
+
+            answer:
+                value
+
+        });
+
+
+        createHeartExplosion(
+            window.innerWidth / 2,
+            window.innerHeight / 2,
+            12
+        );
+
+
+        setTimeout(() => {
+
+            nextQuestion();
+
+        }, 650);
+
+    }
+);
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+
+    if (
+        currentQuestion >=
+        questions.length
+    ) {
+
+        showPhotoQuestion();
+
+        return;
+
+    }
+
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   PHOTO QUESTION
+========================================================= */
+
+function showPhotoQuestion() {
+
+    showScreen(screens.photos);
+
+    document
+        .querySelectorAll(".photo-choice")
+        .forEach(button => {
+
+            button.classList.remove(
+                "selected"
+            );
+
+            button.onclick = () => {
+
+                document
+                    .querySelectorAll(".photo-choice")
+                    .forEach(item => {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    });
+
+
+                button.classList.add(
+                    "selected"
+                );
+
+
+                const selectedPhoto =
+                    button.dataset.photo;
+
+
+                answers.push({
+
+                    question:
+                        "Question 11",
+
+                    answer:
+                        selectedPhoto
+
+                });
+
+
+                createHeartExplosion(
+                    window.innerWidth / 2,
+                    window.innerHeight / 2,
+                    20
+                );
+
 
                 setTimeout(() => {
-                    renderQuestion();
-                }, 350);
 
-            }, 650);
+                    startLoveReveal();
 
-        };
+                }, 900);
 
-    });
+            };
+
+        });
+
+}
+
+
+/* =========================================================
+   LOVE REVEAL
+========================================================= */
+
+function startLoveReveal() {
+
+    showScreen(screens.love);
+
+    const loveText =
+        document.getElementById(
+            "loveText"
+        );
+
+    loveText.textContent = "";
+
+
+    const text =
+        "I LOVE YOU";
+
+
+    let index = 0;
+
+
+    const timer =
+        setInterval(() => {
+
+            loveText.textContent =
+                text.substring(
+                    0,
+                    index + 1
+                );
+
+            index++;
+
+
+            createHeartExplosion(
+                window.innerWidth / 2,
+                window.innerHeight / 2,
+                2
+            );
+
+
+            if (index >= text.length) {
+
+                clearInterval(timer);
+
+
+                setTimeout(() => {
+
+                    showScreen(
+                        screens.proposal
+                    );
+
+                }, 2200);
+
+            }
+
+        }, 180);
 
 }
 
@@ -326,427 +753,619 @@ function showImageQuestion() {
    PROPOSAL
 ========================================================= */
 
-function startProposal() {
+document
+    .querySelectorAll(".proposal-choice")
+    .forEach(button => {
 
-    showScreen(screens.proposal);
+        button.addEventListener(
+            "click",
+            () => {
 
-    loveText.innerHTML = "";
-
-    proposalQuestion.classList.remove("show");
-
-    marriageBox.classList.remove("show");
-
-    document.getElementById("bigHeart").style.display = "block";
-
-    document.getElementById("finalIntro").style.display = "block";
-
-    setTimeout(() => {
-
-        document.getElementById("finalIntro").style.opacity = "0";
-
-    }, 1800);
-
-    setTimeout(() => {
-
-        typeLoveText();
-
-    }, 2400);
-
-}
+                const proposalAnswer =
+                    button.dataset.answer;
 
 
-/* =========================================================
-   I LOVE YOU LETTER REVEAL
-========================================================= */
+                answers.push({
 
-function typeLoveText() {
+                    question:
+                        "Final Proposal",
 
-    const text = "I LOVE YOU";
+                    answer:
+                        proposalAnswer
 
-    loveText.innerHTML = "";
-
-    let index = 0;
-
-    const typing = setInterval(() => {
-
-        loveText.textContent =
-            text.substring(0, index + 1);
-
-        index++;
-
-        if (index >= text.length) {
-
-            clearInterval(typing);
-
-            setTimeout(() => {
-
-                showProposalQuestion();
-
-            }, 1800);
-        }
-
-    }, 180);
-
-}
+                });
 
 
-/* =========================================================
-   SHOW PROPOSAL
-========================================================= */
-
-function showProposalQuestion() {
-
-    document.getElementById("bigHeart").style.transform =
-        "scale(0.7)";
-
-    proposalQuestion.classList.add("show");
-
-    setTimeout(() => {
-
-        marriageBox.classList.add("show");
-
-    }, 2200);
-
-}
+                createMassiveCelebration();
 
 
-/* =========================================================
-   PROPOSAL BUTTONS
-========================================================= */
+                const resultTitle =
+                    document.getElementById(
+                        "resultTitle"
+                    );
 
-document.querySelectorAll(".proposal-btn").forEach(button => {
+                const resultSubtitle =
+                    document.getElementById(
+                        "resultSubtitle"
+                    );
 
-    button.addEventListener("click", () => {
 
-        const x = window.innerWidth / 2;
-        const y = window.innerHeight / 2;
+                if (
+                    proposalAnswer ===
+                    "NEVER 💔"
+                ) {
 
-        createHeartBurst(x, y, 70);
+                    resultTitle.textContent =
+                        "HER ANSWER.";
 
-        createConfetti();
+                    resultSubtitle.textContent =
+                        "NEVER 💔";
 
-        setTimeout(() => {
+                } else {
 
-            showScreen(screens.celebration);
+                    resultTitle.textContent =
+                        "SHE SAID YES. ❤️";
 
-            setTimeout(() => {
+                    resultSubtitle.textContent =
+                        proposalAnswer;
 
-                showMemories();
+                }
 
-            }, 3500);
 
-        }, 700);
+                setTimeout(() => {
+
+                    showScreen(
+                        screens.result
+                    );
+
+                }, 1800);
+
+            }
+        );
 
     });
 
-});
+
+/* =========================================================
+   ANSWER SHEET
+========================================================= */
+
+answerSheetButton.addEventListener(
+    "click",
+    () => {
+
+        renderAnswerSheet();
+
+        showScreen(
+            screens.answerSheet
+        );
+
+    }
+);
 
 
 /* =========================================================
-   CELEBRATION
+   RENDER ANSWERS
 ========================================================= */
 
-function createConfetti() {
+function renderAnswerSheet() {
 
-    const container =
-        document.getElementById("celebrationParticles");
+    const list =
+        document.getElementById(
+            "answersList"
+        );
 
-    container.innerHTML = "";
+    const finalAnswer =
+        document.getElementById(
+            "finalProposalAnswer"
+        );
 
-    for (let i = 0; i < 120; i++) {
 
-        const piece =
+    list.innerHTML = "";
+
+
+    answers.forEach(item => {
+
+        const row =
             document.createElement("div");
 
-        piece.className = "confetti";
+        row.className =
+            "answer-row";
 
-        piece.style.left =
-            Math.random() * 100 + "%";
+        row.innerHTML = `
 
-        piece.style.top =
-            -Math.random() * 30 + "%";
+            <div class="answer-question">
+                ${escapeHTML(item.question)}
+            </div>
 
-        piece.style.animationDelay =
-            Math.random() * 1.5 + "s";
+            <div class="answer-value">
+                ${escapeHTML(item.answer)}
+            </div>
 
-        piece.style.transform =
-            `rotate(${Math.random() * 360}deg)`;
+        `;
 
-        piece.style.width =
-            4 + Math.random() * 7 + "px";
+        list.appendChild(row);
 
-        piece.style.height =
-            8 + Math.random() * 12 + "px";
+    });
 
-        const colors = [
-            "#ff6eaf",
-            "#ffb6dc",
-            "#a78bff",
-            "#ffffff",
-            "#ff83c0"
-        ];
 
-        piece.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
+    const proposal =
+        answers.find(
+            item =>
+                item.question ===
+                "Final Proposal"
+        );
 
-        container.appendChild(piece);
-    }
+
+    finalAnswer.textContent =
+        proposal
+            ? proposal.answer
+            : "—";
 
 }
 
 
 /* =========================================================
-   HEART BURST
+   ESCAPE HTML
 ========================================================= */
 
-function createHeartBurst(x, y, count = 20) {
+function escapeHTML(value) {
 
-    const container =
-        document.getElementById("celebrationParticles");
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 
-    for (let i = 0; i < count; i++) {
-
-        const heart =
-            document.createElement("div");
-
-        heart.className = "burst-heart";
-
-        heart.textContent =
-            Math.random() > 0.5 ? "♥" : "♡";
-
-        heart.style.left = x + "px";
-        heart.style.top = y + "px";
-
-        const angle =
-            Math.random() * Math.PI * 2;
-
-        const distance =
-            80 + Math.random() * 260;
-
-        const moveX =
-            Math.cos(angle) * distance;
-
-        const moveY =
-            Math.sin(angle) * distance;
-
-        heart.style.setProperty(
-            "--x",
-            `${moveX}px`
-        );
-
-        heart.style.setProperty(
-            "--y",
-            `${moveY}px`
-        );
-
-        heart.style.setProperty(
-            "--r",
-            `${Math.random() * 360}deg`
-        );
-
-        heart.style.animationDelay =
-            Math.random() * 0.15 + "s";
-
-        container.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 2500);
-    }
 }
 
 
 /* =========================================================
-   MEMORIES
+   FORMAT DATE
 ========================================================= */
 
-function showMemories() {
+function formatDate(dateString) {
 
-    memoryIndex = 0;
+    const date =
+        new Date(
+            dateString + "T00:00:00"
+        );
 
-    showScreen(screens.memories);
-
-    setTimeout(() => {
-
-        playMemories();
-
-    }, 700);
-
-}
-
-
-function playMemories() {
-
-    const image =
-        document.querySelector("#memoryPhoto img");
-
-    const number =
-        document.getElementById("memoryNumber");
-
-    const caption =
-        document.getElementById("memoryCaption");
-
-    if (memoryIndex >= memories.length) {
-
-        setTimeout(() => {
-
-            showScreen(screens.finalMessage);
-
-        }, 1000);
-
-        return;
-    }
-
-    image.style.opacity = "0";
-    image.style.transform = "scale(1.08)";
-
-    setTimeout(() => {
-
-        image.src =
-            memories[memoryIndex].image;
-
-        caption.textContent =
-            memories[memoryIndex].caption;
-
-        number.textContent =
-            `0${memoryIndex + 1} / 04`;
-
-        image.style.transition =
-            "opacity 1s ease, transform 1.2s ease";
-
-        image.style.opacity = "1";
-        image.style.transform = "scale(1)";
-
-    }, 500);
-
-    memoryIndex++;
-
-    setTimeout(() => {
-
-        playMemories();
-
-    }, 3300);
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
 
 }
+
+
+/* =========================================================
+   DOWNLOAD ANSWERS
+========================================================= */
+
+document
+    .getElementById("downloadAnswers")
+    .addEventListener(
+        "click",
+        () => {
+
+            const data = {
+
+                name:
+                    "Vijayasree",
+
+                answers:
+                    answers,
+
+                created:
+                    new Date().toLocaleString()
+
+            };
+
+
+            const blob =
+                new Blob(
+                    [
+                        JSON.stringify(
+                            data,
+                            null,
+                            4
+                        )
+                    ],
+                    {
+                        type:
+                            "application/json"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(
+                    blob
+                );
+
+
+            const link =
+                document.createElement(
+                    "a"
+                );
+
+            link.href = url;
+
+            link.download =
+                "vijayasree-answer-sheet.json";
+
+            link.click();
+
+
+            URL.revokeObjectURL(url);
+
+        }
+    );
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+document
+    .getElementById("printAnswers")
+    .addEventListener(
+        "click",
+        () => {
+
+            window.print();
+
+        }
+    );
 
 
 /* =========================================================
    REPLAY
 ========================================================= */
 
-replayBtn.addEventListener("click", () => {
+replayButton.addEventListener(
+    "click",
+    () => {
 
-    currentQuestionIndex = 0;
-    memoryIndex = 0;
+        answers = [];
 
-    document.getElementById(
-        "celebrationParticles"
-    ).innerHTML = "";
+        currentQuestion = 0;
 
-    loveText.innerHTML = "";
-
-    proposalQuestion.classList.remove("show");
-
-    marriageBox.classList.remove("show");
-
-    showScreen(screens.start);
-
-});
+        document.getElementById(
+            "memoryDate"
+        ).value = "";
 
 
-/* =========================================================
-   FALLING HEARTS
-========================================================= */
+        document.getElementById(
+            "writtenAnswer"
+        ).value = "";
 
-function createFallingHearts() {
 
-    const layer =
-        document.querySelector(".hearts-layer");
-
-    for (let i = 0; i < 25; i++) {
-
-        const heart =
-            document.createElement("span");
-
-        heart.className = "falling-heart";
-
-        heart.textContent =
-            Math.random() > 0.5 ? "♡" : "♥";
-
-        heart.style.left =
-            Math.random() * 100 + "%";
-
-        heart.style.animationDuration =
-            8 + Math.random() * 12 + "s";
-
-        heart.style.animationDelay =
-            Math.random() * 10 + "s";
-
-        heart.style.fontSize =
-            8 + Math.random() * 13 + "px";
-
-        layer.appendChild(heart);
+        showScreen(
+            screens.welcome
+        );
 
     }
-}
-
-createFallingHearts();
+);
 
 
 /* =========================================================
-   MOUSE HEART CURSOR
+   BACKGROUND FLOATING HEARTS
+========================================================= */
+
+function createBackgroundHearts() {
+
+    const container =
+        document.getElementById(
+            "backgroundHearts"
+        );
+
+
+    for (
+        let i = 0;
+        i < 32;
+        i++
+    ) {
+
+        const heart =
+            document.createElement(
+                "span"
+            );
+
+        heart.className =
+            "floating-heart";
+
+        heart.textContent =
+            Math.random() > 0.5
+                ? "♥"
+                : "♡";
+
+
+        heart.style.left =
+            `${Math.random() * 100}%`;
+
+
+        heart.style.animationDuration =
+            `${8 + Math.random() * 12}s`;
+
+
+        heart.style.animationDelay =
+            `${Math.random() * 10}s`;
+
+
+        heart.style.fontSize =
+            `${10 + Math.random() * 14}px`;
+
+
+        container.appendChild(
+            heart
+        );
+
+    }
+
+}
+
+
+createBackgroundHearts();
+
+
+/* =========================================================
+   TOUCH / CLICK HEART SPARKS
 ========================================================= */
 
 const cursor =
-    document.querySelector(".cursor-heart");
-
-document.addEventListener("mousemove", event => {
-
-    cursor.style.left =
-        event.clientX + "px";
-
-    cursor.style.top =
-        event.clientY + "px";
-
-});
-
-
-document.addEventListener("mousedown", () => {
-
-    cursor.classList.add("active");
-
-    createHeartBurst(
-        window.event?.clientX || window.innerWidth / 2,
-        window.event?.clientY || window.innerHeight / 2,
-        5
+    document.getElementById(
+        "heartCursor"
     );
 
-});
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursor.style.left =
+            `${event.clientX}px`;
+
+        cursor.style.top =
+            `${event.clientY}px`;
+
+    }
+);
 
 
-document.addEventListener("mouseup", () => {
+document.addEventListener(
+    "mousedown",
+    event => {
 
-    cursor.classList.remove("active");
+        cursor.classList.add(
+            "touch"
+        );
 
-});
+
+        createHeartExplosion(
+            event.clientX,
+            event.clientY,
+            12
+        );
+
+    }
+);
+
+
+document.addEventListener(
+    "mouseup",
+    () => {
+
+        cursor.classList.remove(
+            "touch"
+        );
+
+    }
+);
 
 
 /* =========================================================
-   MOBILE TOUCH HEART
+   MOBILE TOUCH
 ========================================================= */
 
-document.addEventListener("touchstart", event => {
+document.addEventListener(
+    "touchstart",
+    event => {
 
-    const touch = event.touches[0];
+        const touch =
+            event.touches[0];
 
-    if (!touch) return;
+        if (!touch) {
+            return;
+        }
 
-    createHeartBurst(
-        touch.clientX,
-        touch.clientY,
-        4
+
+        createHeartExplosion(
+            touch.clientX,
+            touch.clientY,
+            10
+        );
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================================
+   HEART EXPLOSION
+========================================================= */
+
+function createHeartExplosion(
+    x,
+    y,
+    count = 15
+) {
+
+    const container =
+        document.getElementById(
+            "sparkContainer"
+        );
+
+
+    const symbols = [
+        "♥",
+        "♡",
+        "✦",
+        "✧",
+        "•"
+    ];
+
+
+    const colors = [
+        "#ff365d",
+        "#ff6b88",
+        "#ffb1c0",
+        "#ffffff",
+        "#ff8b9e"
+    ];
+
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        const spark =
+            document.createElement(
+                "span"
+            );
+
+        spark.className =
+            "spark";
+
+
+        spark.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        spark.style.setProperty(
+            "--left",
+            `${x}px`
+        );
+
+
+        spark.style.setProperty(
+            "--top",
+            `${y}px`
+        );
+
+
+        spark.style.setProperty(
+            "--x",
+            `${(Math.random() - 0.5) * 260}px`
+        );
+
+
+        spark.style.setProperty(
+            "--y",
+            `${(Math.random() - 0.5) * 260}px`
+        );
+
+
+        spark.style.setProperty(
+            "--rotation",
+            `${Math.random() * 720 - 360}deg`
+        );
+
+
+        spark.style.setProperty(
+            "--size",
+            `${10 + Math.random() * 17}px`
+        );
+
+
+        spark.style.setProperty(
+            "--spark-color",
+            colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ]
+        );
+
+
+        container.appendChild(
+            spark
+        );
+
+
+        setTimeout(
+            () => {
+
+                spark.remove();
+
+            },
+            1400
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MASSIVE CELEBRATION
+========================================================= */
+
+function createMassiveCelebration() {
+
+    const centerX =
+        window.innerWidth / 2;
+
+    const centerY =
+        window.innerHeight / 2;
+
+
+    createHeartExplosion(
+        centerX,
+        centerY,
+        100
     );
 
-}, {
-    passive: true
-});
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        setTimeout(
+            () => {
+
+                createHeartExplosion(
+                    Math.random() *
+                    window.innerWidth,
+
+                    Math.random() *
+                    window.innerHeight,
+
+                    35
+                );
+
+            },
+            i * 250
+        );
+
+    }
+
+}
